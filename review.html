@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word history</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        button:hover{
+            background:#c1c1c1;
+        cursor:pointer;
+        }
+    </style>
+</head>
+<body class="bg-[#E5E6E4]">
+    <div class="flex flex-col mt-20 place-items-center gap-3 mb-20">
+        <div class="w-[600px] h-auto rounded-md bg-[#CFD2CD] p-4">
+            <div class="bg-white rounded-md p-3 text-center font-bold text-2xl mb-4"> CHOOSE PLAYER </div> 
+            <div id="wordhist" class="flex flex-col gap-2">
+                
+            </div>
+            <div id="wor" class="flex flex-col gap-2"></div>
+        </div>
+        <button class="w-[130px] rounded-xl bg-white shadow-md px-2 py-1 font-light text-sm " onclick="window.location.href='home.html'">Main Menu</button>    
+    </div>
+        
+    
+
+    </div>
+    <script>
+        /*
+        Word history different for each player. done
+        Scoreboard - click player -> show word history DONE LEZGOOOOOOO
+        */
+        let player = Array.from(JSON.parse(localStorage.getItem("player")));
+        console.log(player);
+        showPlayers();        
+        
+        function showPlayers(){
+            var list_of_players =  [];
+            player.forEach(p => {
+                list_of_players.push(p.name);
+            })
+            var unique_players = [...new Set(list_of_players)];
+            
+            unique_players.forEach(p => {
+                document.getElementById("wordhist").innerHTML+="<button class='bg-white rounded-md p-3 text-center font-light text-md w-full' onclick='getWordlist(`"+p+"`)'>"+p+"</button>";
+                
+            })
+
+
+        }
+
+        function getWordlist(p){
+            localStorage.setItem("slc_player",p);
+            window.open("player_words.html").focus();
+            
+        }
+
+
+        
+    </script>
+</body>
+</html>

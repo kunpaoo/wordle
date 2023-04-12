@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word History</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        button:hover{
+            background:#c1c1c1;
+        cursor:pointer;
+        }
+    </style>
+</head>
+<body class="bg-[#E5E6E4]">
+    <div class="flex flex-col mt-20 place-items-center gap-3 mb-20">
+        <div class="w-[600px] h-auto rounded-md bg-[#CFD2CD] p-4">
+            <div id="name" class="bg-white rounded-md p-3 text-center font-bold text-2xl mb-4"> WORDS </div> 
+            <div id="wor" class="flex flex-col gap-2"></div>
+        </div>
+        <div class="flex flex-row gap-4">
+        <button class="w-[130px] rounded-xl bg-white shadow-md px-2 py-1 font-light text-sm " onclick="window.close()">Close</button>
+        <button class="w-[130px] rounded-xl bg-white shadow-md px-2 py-1 font-light text-sm " onclick="clearHist()">Clear History</button>
+        </div>
+    </div>
+    
+    <script>
+
+        var p = localStorage.getItem("slc_player");
+        document.getElementById("name").innerHTML=p;
+        let player = Array.from(JSON.parse(localStorage.getItem("player")));
+        var wordhist=[];
+            console.log("here?");
+        var date;
+            player.forEach(x => {
+                if(x.name == p){
+                    wordhist.push(JSON.stringify(x.wordlist));
+                }
+            })
+            wordhist.reverse();
+            wordhist.forEach(wordlist => {
+                console.log(JSON.parse(wordlist));
+                wordlist = JSON.parse(wordlist);
+                Array.prototype.forEach.call(wordlist, word => {
+                    console.log(word,"AA");
+                    var correct_out;
+                        if(word.correct){
+                            correct_out="<span class='text-[#62b93b] font-bold'>correct</span>";
+                        }   
+                        else{
+                            correct_out="<span class='text-[#d15353] font-bold'>incorrect</span>";
+                        }
+                        document.getElementById("wor").innerHTML+=
+                        "<div class='bg-white rounded-md p-3 px-10 text-left font-light text-md w-full flex flex-row justify-start'>"
+                        +"<div class='text-xs text-left mr-20 align-bottom pt-1'><i>"+word.date+"</i></div>"
+                        +"<div>"+word.word+" - "+word.def+" : "+correct_out+"</div></div>";
+
+                    })
+            });
+        function clearHist(){
+            player.forEach(x => {
+                if(x.name == p){
+                    x.wordlist=[];
+                }
+            })
+            
+            localStorage.setItem("player",JSON.stringify(player));
+            document.getElementById("wor").innerHTML="";
+        }
+    </script>
+</body>
+</html>

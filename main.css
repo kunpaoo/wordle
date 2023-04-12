@@ -1,0 +1,70 @@
+body{
+    font-family: Arial;
+    background:#e5e6e4;
+}
+
+
+table{
+    border-spacing:10px;
+    border-collapse: none;
+}
+td, tr{
+    border: 1px solid gray;
+    height:80px;
+    width:80px;
+    text-transform:uppercase;
+    text-align: center;
+    font-size: 40px;  
+}
+
+.end-screen{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left:-150px;
+    margin-top:-100px;
+    border:1px solid gray;
+    background:white;
+    width:300px;
+    height:auto;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0px 1px 1px grey;
+    animation-name:pop;
+    animation-duration: 1s;
+}
+
+
+@keyframes pop{
+    0% {
+        transform:scale(0);
+    }
+    50%{
+        transform:scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+        
+    }
+}
+
+#next{
+    width:100px;
+    font-size: 13px;
+    margin-top:30px;
+    border-radius:8px;
+    background:#E5E6E4;
+    box-shadow:0px 1px 1px rgb(181, 181, 181);
+    padding:2px 0px 2px 0px;
+    
+}
+
+#next:hover{
+    background:#c1c1c1;
+    cursor:pointer;
+}
+
+.card{
+    font-size:13px;
+}

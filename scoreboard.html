@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        button:hover{
+            background:#c1c1c1;
+        cursor:pointer;
+        }
+    </style>
+</head>
+<body class="bg-[#E5E6E4]">
+    <div class="flex flex-col mt-20 place-items-center gap-3">
+        <div class="w-[600px] h-auto rounded-md bg-[#CFD2CD] p-4">
+            <div class="bg-white rounded-md p-3 text-center font-bold text-2xl mb-4"> SCOREBOARD </div> 
+            <div class="flex flex-row gap-2">
+                <button id="e" class='bg-white rounded-md p-3 text-center font-light text-md w-full' onclick='getScores("e")'>ENDLESS</button>
+                <button id="t" class='bg-white rounded-md p-3 text-center font-light text-md w-full' onclick='getScores("t")'>TIMED</button>
+            
+            </div>
+            <div id="scoreb" class="flex flex-col gap-2 mt-3">
+
+            </div>
+        </div>
+        <button class="w-[130px] rounded-xl bg-white shadow-md px-2 py-1 font-light text-sm" onclick="window.location.href='home.html'">Main Menu</button>
+    </div>
+        
+    </div>
+    
+    <script>
+        let scores = Array.from(JSON.parse(localStorage.getItem("player")));
+
+
+        for(var i =1; i<scores.length;i++){ //sorts scores
+            console.log(scores[i].score);
+            var xscore = scores[i].score;
+            var xname = scores[i].name;
+            var xmode = scores[i].mode;
+            var y = i-1;
+            while(y>=0 && xscore>scores[y].score){
+                scores[y+1].score=scores[y].score;
+                scores[y+1].name=scores[y].name;
+                scores[y+1].mode = scores[y].mode;
+                --y;
+            }
+            scores[y+1].name = xname;
+            scores[y+1].score = xscore;
+            scores[y+1].mode = xmode;
+        }
+
+        function getScores(m){
+        var scorelist="";
+        scores.forEach(sc => {
+            if(sc.mode==m){
+                var name = sc.name;
+                var score = sc.score;
+                scorelist+="<button class='bg-white rounded-md p-3 text-center font-light text-md w-full' onclick='openWordHist(`"+name+"`)'>"+name+" - "+score+"</button>";
+            }
+            
+        });
+        document.getElementById("scoreb").innerHTML=scorelist;
+        document.getElementById(m).style.background="#c1c1c1";
+        if(m == "e"){
+            document.getElementById("t").style.background="white";
+        }
+        else{
+            document.getElementById("e").style.background="white";
+        }
+        
+
+        }
+
+        
+
+        function openWordHist(p){
+            localStorage.setItem("slc_player",p);
+            window.open("player_words.html");
+        }
+    </script>
+</body>
+</html>

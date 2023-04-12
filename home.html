@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizaldle</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body class="bg-[#E5E6E4]">
+    <div class="flex flex-col mt-20 place-items-center p-5 gap-10">
+        <div class="text-5xl tracking-tight font-bold">Rizaldle<p class="text-base text-center font-normal tracking-normal">A Filipino Wordle</p></div>
+        
+        <div class="bg-[#FBFBF2] py-5 px-4 shadow-md rounded-md flex flex-col gap-3">
+            <button class="bg-[#E5E6E4] rounded-md w-40 text-black text-s font-light shadow-sm hover:bg-[#CFD2CD]" onclick="window.location.href='main.html'">Endless Mode</button>
+            <button class="bg-[#E5E6E4] rounded-md w-40 text-black text-s font-light shadow-sm hover:bg-[#CFD2CD]" onclick="window.location.href='main-timed.html'">Timed Mode</button>
+            <button class="bg-[#E5E6E4] rounded-md w-40 text-black text-s font-light shadow-sm hover:bg-[#CFD2CD]" onclick="window.location.href='review.html'">Review</button>
+            <button class="bg-[#E5E6E4] rounded-md w-40 text-black text-s font-light shadow-sm hover:bg-[#CFD2CD]" onclick="window.location.href='scoreboard.html'">Scoreboard</button>
+            <button class="bg-[#E5E6E4] rounded-md w-40 text-black text-s font-light shadow-sm hover:bg-[#CFD2CD]" onclick="window.location.href='how-to.html'">How to Play</button>
+        </div>
+    </div>
+    
+    
+<script>
+    
+        localStorage.setItem("score",0);
+        localStorage.setItem("time",300);
+    //resets score and timer
+    console.log(localStorage.getItem("time"));
+</script>
+</body>
+</html>

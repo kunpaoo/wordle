@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+</head>
+<body id="body">
+    <!-- https://coolors.co/palette/fbfbf2-e5e6e4-cfd2cd-a6a2a2-847577 -->
+    <div class="flex flex-col place-items-center mt-10 gap-1">
+        <div class="flex w-[400px] flex-row items-stretch gap-4 justify-between h-auto">
+            <div class="text-left text-xl font-bold italic tracking-tight">Rizaldle</div>
+            <div id="score" class="bg-white rounded-md w-20 p-1 shadow-sm text-xs text-center mb-1">Score: 0</div>
+            <div id="timer" class="bg-white rounded-md w-20 p-1 shadow-sm text-xs text-center mb-1">Timer: <span id="time"></span></div>
+        </div>
+        <div id="table"> <!-- Grid -->
+        
+        </div>
+        <div class="flex flex-row p-5 gap-3">
+            <form> <!-- INPUT FIELD  -->
+                <input id="text" type="text" pattern="[A-Za-z]+" maxlength="5" minlength="5" class="w-[300px] h-1 p-3 text-[12px] border border-gray-200 rounded-md text-center uppercase shadow-sm">
+                <button type="submit" class="w-10 h-6 px-1 text-center bg-[#a6a2a2] text-[#e5e6e4] shadow-sm rounded-md text-xs font-bold">✓</button>
+            </form>
+        </div>
+
+        <!-- KEYBOARD LAYOUT -->
+        <div class="flex flex-col flex-wrap gap-2 p-2 mb-5">
+            <div class="flex flex-row gap-1 place-items-center">            
+                <div id="q" class="bg-gray-300 p-2 rounded-md text-s">q</div>
+                <div id="w" class="bg-gray-300 p-2 rounded-md text-s">w</div>
+                <div id="e" class="bg-gray-300 p-2 rounded-md text-s">e</div>
+                <div id="r" class="bg-gray-300 p-2 rounded-md text-s">r</div>
+                <div id="t" class="bg-gray-300 p-2 rounded-md text-s">t</div>
+                <div id="y" class="bg-gray-300 p-2 rounded-md text-s">y</div>
+                <div id="u" class="bg-gray-300 p-2 rounded-md text-s">u</div>
+                <div id="i" class="bg-gray-300 p-2 rounded-md text-s">i</div>
+                <div id="o" class="bg-gray-300 p-2 rounded-md text-s">o</div>
+                <div id="p" class="bg-gray-300 p-2 rounded-md text-s">p</div>
+            </div>
+            <div class="flex flex-row gap-1 justify-center">
+                <div id="a" class="bg-gray-300 p-2 rounded-md text-s">a</div>
+                <div id="s" class="bg-gray-300 p-2 rounded-md text-s">s</div>
+                <div id="d" class="bg-gray-300 p-2 rounded-md text-s">d</div>
+                <div id="f" class="bg-gray-300 p-2 rounded-md text-s">f</div>
+                <div id="g" class="bg-gray-300 p-2 rounded-md text-s">g</div>
+                <div id="h" class="bg-gray-300 p-2 rounded-md text-s">h</div>
+                <div id="j" class="bg-gray-300 p-2 rounded-md text-s">j</div>
+                <div id="k" class="bg-gray-300 p-2 rounded-md text-s">k</div>
+                <div id="l" class="bg-gray-300 p-2 rounded-md text-s">l</div>
+            </div>
+            <div class="flex flex-row gap-1 justify-center">
+                <div id="z" class="bg-gray-300 p-2 rounded-md text-s">z</div>
+                <div id="x" class="bg-gray-300 p-2 rounded-md text-s">x</div>
+                <div id="c" class="bg-gray-300 p-2 rounded-md text-s">c</div>
+                <div id="v" class="bg-gray-300 p-2 rounded-md text-s">v</div>
+                <div id="b" class="bg-gray-300 p-2 rounded-md text-s">b</div>
+                <div id="n" class="bg-gray-300 p-2 rounded-md text-s">n</div>
+                <div id="m" class="bg-gray-300 p-2 rounded-md text-s">m</div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="main.js"></script>
+    <script src="main-timed.js"></script>
+</body>
+</html>
